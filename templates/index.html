@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Profile Form</title>
+    <style>
+        /* Modern CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f5f7ff 0%, #e9ecff 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            max-width: 650px;
+            width: 100%;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 8px rgba(102, 126, 234, 0.5);
+            outline: none;
+        }
+
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2d3748;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .layout {
+            display: flex;
+            gap: 2rem;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        /* Description Boxes */
+        .descriptions {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .info-box {
+            background: white;
+            padding: 1.25rem;
+            max-width: 300px;
+            width: max-content;
+            word-wrap: break-word;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .info-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-box h3 {
+            color: #4a5568;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .info-box p {
+            color: #718096;
+            font-size: 0.95rem;
+        }
+
+        /* Form Styles */
+        .main-form {
+            flex: 2;
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #4c6ef5;
+            box-shadow: 0 0 0 3px rgba(76, 110, 245, 0.1);
+        }
+
+        input::placeholder {
+            color: #a0aec0;
+        }
+
+        button {
+            width: 100%;
+            padding: 1rem;
+            background: #4c6ef5;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        button:hover {
+            background: #3b5bdb;
+            transform: translateY(-1px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .layout {
+                flex-direction: column;
+            }
+
+            .descriptions {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .info-box {
+                flex: 1;
+                min-width: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .descriptions {
+                flex-direction: column;
+            }
+
+            /* .info-box {
+                max-width: 100%;
+
+            } */
+        }
+
+        .ans-container {
+            display: flex;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+
+        .infor-ans-box {
+            background: white;
+            padding: 1.25rem;
+            margin-top: 25px;
+            max-width: 100%;
+            word-wrap: break-word;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .nodulle-size{
+            background: white;
+            padding: 1.25rem;
+            margin-top: 25px;
+            max-width: 100%;
+            word-wrap: break-word;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            color: #a0aec0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Cancer Chances</h1>
+
+        <div class="layout">
+            <!-- Left Descriptions -->
+            <div class="descriptions left-boxes">
+                <div class="info-box">
+                    <h3>Age : </h3>
+                    <p>Mention Your current Age</p>
+                </div>
+                <div class="info-box">
+                    <h3>Gender :</h3>
+                    <p>Mention your Gender </p>
+                </div>
+                <div class="info-box">
+                    <h3>Country</h3>
+                    <p>Mention Country Name</p>
+                </div>
+                <div class="info-box">
+                    <h3>Ethnicity : </h3>
+                    <p> Ethnicity can influence the risk, presentation,
+                        and outcomes of thyroid cancer.
+                        Research suggests differences in incidence rates, genetic
+                        predispositions, and survival rates among various ethnic groups.
+                        <a href="https://www.google.com/search?q=Ethnicity " target="_blank">Click for more</a>
+                    </p>
+                </div>
+                <div class="info-box">
+                    <h3>Family_History</h3>
+                    <p>If a close family member (parent, sibling, or grandparent) has had cancer,
+                        your risk may be higher than average.
+                        <a href="https://www.google.com/search?q=Family_History in cancer" target="_blank">Click for
+                            more</a>
+                    </p>
+                </div>
+                <div class="info-box">
+                    <h3>Radiation_Exposure</h3>
+                    <p>Radiation exposure is a well-known risk factor for cancer. It can damage DNA in cells,
+                        leading to mutations that may cause uncontrolled cell growth (cancer)
+                        <b>Sources:</b>
+
+                        X-rays & CT scans (medical imaging)
+                        Radiation therapy (used to treat cancer but may increase risk for second cancers)
+                        Radon gas (a natural radioactive gas found in homes)
+                        Nuclear accidents or radiation fallout (e.g., Chernobyl, Hiroshima)
+                        <a href="https://www.google.com/search?q=what is Radiation_Exposure in cancer"
+                            target="_blank">Click for more</a>
+                    </p>
+                </div>
+                <div class="info-box">
+                    <h3>Iodine_Deficiency</h3>
+                    <p>Iodine deficiency is a major risk factor for thyroid disorders, including thyroid cancer.
+                        Since iodine is essential for thyroid hormone production, its deficiency can lead to abnormal
+                        thyroid growth and function.
+                        <a href="https://www.google.com/search?q= what is Iodine_Deficiency in cancer"
+                            target="_blank">Click for more</a>
+                    </p>
+                </div>
+            </div>
+
+
+            <form id="cancerForm" action="/action" , method="post">
+                <label for="age">Age:</label>
+                <input name="age" type="number" id="age" placeholder="Enter your Age" required min="0">
+
+                <label for="gender">Gender:</label>
+                <p> Male -> 1 , Female -> 0</p>
+                <select name="gender" id="gender">
+                    <option value=1>1</option>
+                    <option value=0>0</option>
+
+                </select>
+
+                <label for="Country">Country:</label>
+                <input name="country" type="text" id="Country" placeholder="Enter Country Name" required>
+
+
+                <label for="Ethnicity">Ethnicity:</label>
+                <input name="Ethnicity" type="text" id="Country" placeholder="Enter Country Name" required>
+
+                <label for="Family_History">Family_History:</label>
+                <select name="Family_History" id="Family_History">
+                    <option value=1>1</option>
+                    <option value=0>0</option>
+                </select>
+
+                <label for="Radiation_Exposure">Radiation_Exposure:</label>
+                <select name="Radiation_Exposure" id="Radiation_Exposure">
+                    <option value=1>1</option>
+                    <option value=0>0</option>
+
+                </select>
+
+                <label for="Iodine_Deficiency">Iodine_Deficiency:</label>
+                <select name="Iodine_Deficiency" id="Iodine_Deficiency">
+                    <option value=1>1</option>
+                    <option value=0>0</option>
+                </select>
+
+                <label for="Smoking">Smoking:</label>
+                <select name="Smoking" id="Smoking">
+                    <option value=1>1</option>
+                    <option value=0>0</option>
+                </select>
+
+                <label for="Obesity">Obesity:</label>
+                <select name="Obesity" id="Obesity">
+                    <option value=1>1</option>
+                    <option value=0>0</option>
+                </select>
+
+                <label for="Diabetes">Diabetes:</label>
+                <select name="Diabetes" id="Diabetes">
+                    <option value=1>1</option>
+                    <option value=0>0</option>
+                </select>
+
+                <label for="TSH_Level">TSH_Level:</label>
+                <input name="TSH_Level" type="number" id="TSH_Level" placeholder="Enter TSH_Level code" required>
+
+                <label for="T3_Level">T3_Level:</label>
+                <input name="T3_Level" type="number" id="T3_Level" placeholder="Enter T3_Level code" required>
+
+                <label for="T4_Level">T4_Level:</label>
+                <input name="T4_Level" type="number" id="T4_Level" placeholder="Enter T4_Level URL">
+
+                <label for="Nodule_Size">Nodule_Size:</label>
+                <input name="Nodule_Size" type="text" id="Nodule_Size" placeholder="Enter Nodule_Size">
+
+
+                <button type="submit">Submit</button>
+                {%if prediction%}
+                <div class="infor-ans-box">
+                    <div class="ans-container">
+                        <h2>The Chances of Cancer is : {{prediction}}</h2>
+                        <!-- <h3>with accuracy of {}</h3> -->
+                    </div>
+                    <!-- <div class="ans-container">
+                        <h3>with accuracy of {}</h3>
+                        
+                    </div> -->
+                </div>
+                {%endif%}
+
+                <div class="nodulle-size">
+                    <h3>Nodule_Size</h3>
+                    <p>A nodule is a small, abnormal growth or lump that can form in different parts of the body,
+                        including the thyroid, lungs, liver, and breasts.
+                        <br>
+                        <b>Size :</b>
+                        small or 1 cm (Tiny Nodules) Low risk Usually monitored with ultrasound
+                        1 - 1.5 cm Moderate risk Further evaluation needed (ultrasound, biopsy if suspicious)
+                        1.5 - 2 cm Higher risk May require fine-needle aspiration (FNA) biopsy
+                        > 2 cm High risk Biopsy recommended, possible surgery
+                        > 4 cm Very high risk Higher chance of malignancy; surgery often required
+                    </p>
+                </div>
+            </form>
+            <!-- <div id="answerBox"
+            style="display: none; margin-top: 20px; padding: 10px; background: white; border: 1px solid #ddd; border-radius: 5px;">
+            <p id="answerText">Your answer will appear here...</p>
+        </div> -->
+
+            <!-- Right Descriptions -->
+            <div class="descriptions right-boxes">
+                <div class="info-box">
+                    <h3>Smoking :</h3>
+                    <p>Daily Smoking ??</p>
+                </div>
+                <div class="info-box">
+                    <h3>Obesity :</h3>
+                    <p>Obesity is a major risk factor for several types of cancer due to its effects on hormones,
+                        inflammation, and metabolism.
+                        Excess body fat can create a pro-cancer environment by promoting chronic inflammation, insulin
+                        resistance, and hormonal imbalances.
+                        <a href="https://www.google.com/search?q=what is Obesity in cancer" target="_blank">Click for
+                            more</a>
+                    </p>
+                </div>
+                <div class="info-box">
+                    <h3>Diabetes</h3>
+                    <p>Diabetes is a chronic condition that affects how your body processes blood sugar (glucose).
+                        It occurs when your body doesn’t produce enough insulin or can’t use insulin effectively.
+                        <a href="https://www.google.com/search?q=what is Diabetes" target="_blank">Click for
+                            more</a>
+                    </p>
+                </div>
+                <div class="info-box">
+                    <h3>TSH_Level</h3>
+                    <p>TSH (Thyroid-Stimulating Hormone) is a hormone produced by the pituitary gland in the brain.
+                        It regulates the thyroid gland, which controls metabolism, energy levels, and overall body
+                        function.<br>
+                        <b>Ranges :</b><br>
+                        Normal -> 0.4 - 4.0 Healthy thyroid function
+                        Low TSH -> Below 0.4 Possible hyperthyroidism (overactive thyroid)
+                        High TSH -> Above 4.0 Possible hypothyroidism (underactive thyroid)
+
+                        <a href="https://www.google.com/search?q=what is TSH_Level" target="_blank">Click for
+                            more</a>
+                    </p>
+                </div>
+                <div class="info-box">
+                    <h3>T3_Level</h3>
+                    <p>T3 (Triiodothyronine) is one of the two main thyroid hormones (along with T4 - Thyroxine)
+                        produced by the thyroid gland.
+                        It plays a crucial role in regulating metabolism, heart rate, digestion, and body temperature.
+                        <a href="https://www.google.com/search?q=what is T3_Level" target="_blank">Click for
+                            more</a>
+                    </p>
+                </div>
+                <div class="info-box">
+                    <h3>T4_Level</h3>
+                    <p>T4 (Thyroxine) is the main hormone produced by the thyroid gland.
+                        It helps regulate metabolism, energy production, heart function, and body temperature.
+                        <a href="https://www.google.com/search?q=what is T4_Level" target="_blank">Click for
+                            more</a>
+                    </p>
+                </div>
+                <!-- <div class="info-box">
+                    <h3>Nodule_Size</h3>
+                    <p>A nodule is a small, abnormal growth or lump that can form in different parts of the body, including the thyroid, lungs, liver, and breasts. 
+                        <br>
+                        <b>Size :</b>
+                        small or 1 cm (Tiny Nodules)	Low risk	Usually monitored with ultrasound
+                        1 - 1.5 cm	Moderate risk	Further evaluation needed (ultrasound, biopsy if suspicious)
+                        1.5 - 2 cm	Higher risk	May require fine-needle aspiration (FNA) biopsy
+                        > 2 cm	High risk	Biopsy recommended, possible surgery
+                        > 4 cm	Very high risk	Higher chance of malignancy; surgery often required</p>
+                </div> -->
+            </div>
+
+        </div>
+
+    </div>
+    <script>
+        document.getElementById("cancerForm").addEventListener("submit", function(event) {
+            event.preventDefault();  // Prevent form submission & page reload
+
+            let formData = new FormData(this);
+            let resultText = "";
+
+            for (let [key, value] of formData.entries()) {
+                resultText += `<strong>${key}:</strong> ${value}<br>`;
+            }
+
+            document.getElementById("displayData").innerHTML = resultText;
+            document.getElementById("result").style.display = "block";
+        });
+    </script>
+</body>
+
+</html>
