@@ -52,7 +52,7 @@ def action():
     Radiation_Exposure , Iodine_Deficiency , Smoking , Obesity ,Diabetes , TSH_Level , T3_Level , T4_Level , Nodule_Size]
     #print(data)
     hstack = np.hstack((one_transfer_encoded , [data]))
-    # print(hstack)
+    # print(hstack)                                                                                                                                                                                                 
     # print(rc.predict(hstack))
 
     prediction = rc.predict(hstack)
